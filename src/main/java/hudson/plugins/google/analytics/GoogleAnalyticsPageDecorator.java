@@ -13,13 +13,11 @@ import hudson.model.PageDecorator;
 public class GoogleAnalyticsPageDecorator extends PageDecorator {
 
     private String profileId;
-    private String domainName;
 
     @DataBoundConstructor
-    public GoogleAnalyticsPageDecorator(String profileId, String domainName) {
+    public GoogleAnalyticsPageDecorator(String profileId) {
         this();
         this.profileId = profileId;
-        this.domainName = domainName;
     }
     
     public GoogleAnalyticsPageDecorator() {
@@ -45,13 +43,5 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
 
     public void setProfileId(String profileId) {
         this.profileId = profileId;
-    }
-    
-    public String getDomainName() {
-        return Util.fixEmpty(domainName);
-    }
-    
-    public void setDomainName(String domainName) {
-      this.domainName = domainName;
     }
 }

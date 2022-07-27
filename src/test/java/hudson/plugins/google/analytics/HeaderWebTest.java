@@ -39,32 +39,6 @@ public class HeaderWebTest extends HudsonTestCase {
                 page.asXml().contains("_gaq.push(['_setAccount', 'AProfileId']);"));
     }
     /**
-     * Asserts that page contains the profile within quotes.
-     */
-    @LocalData
-    public void testScriptForDomain() throws Exception {
-        WebClient webClient = new WebClient();
-        webClient.setJavaScriptEnabled(false);
-        HtmlPage page = webClient.goTo("configure");
-        WebAssert.assertInputContainsValue(page, "_.domainName", "ADomain");
-        assertTrue("The page text did not contain the _setDomainName value", 
-                page.asXml().contains("_gaq.push(['_setDomainName', 'ADomain']);"));
-    }
-    /**
-     * Asserts that page contains the profile within quotes.
-     */
-    @LocalData
-    public void testScriptForMultipleTopLevelDomains() throws Exception {
-        WebClient webClient = new WebClient();
-        webClient.setJavaScriptEnabled(false);
-        HtmlPage page = webClient.goTo("configure");
-        WebAssert.assertInputContainsValue(page, "_.domainName", "none");
-        assertTrue("The page text did not contain the none Domain name", 
-                page.asXml().contains("_gaq.push(['_setDomainName', 'none']);"));
-        assertTrue("The page text did not contain the _setAllowLinker value", 
-                page.asXml().contains("_gaq.push(['_setAllowLinker', true]);"));
-    }
-    /**
      * Asserts that the header does not contain the google analytics script.
      */
     public void testEmptyHeaderIfEmptyProfileId() throws Exception {
